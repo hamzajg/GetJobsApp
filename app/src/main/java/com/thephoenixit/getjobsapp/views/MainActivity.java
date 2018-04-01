@@ -11,5 +11,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+    mAdView = (com.google.android.gms.ads.AdView) findViewById(R.id.adView);
+    adRequest = new com.google.android.gms.ads.AdRequest.Builder().build();
     }
+com.google.android.gms.ads.AdView mAdView;
+    com.google.android.gms.ads.AdRequest adRequest;
 }

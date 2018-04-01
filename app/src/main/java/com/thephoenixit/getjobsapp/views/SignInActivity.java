@@ -150,10 +150,14 @@ public class SignInActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+    mAdView = (com.google.android.gms.ads.AdView) findViewById(R.id.signinadView);
+    adRequest = new com.google.android.gms.ads.AdRequest.Builder().build();
         validator = new Validator(this);
         validator.setValidationListener(this);
     }
-
+com.google.android.gms.ads.AdView mAdView;
+    com.google.android.gms.ads.AdRequest adRequest;
     @Override
     public void onValidationSucceeded() {
         strEmail = edtEmail.getText().toString();

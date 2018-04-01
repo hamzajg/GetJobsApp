@@ -30,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
                 {
                     if(!mIsBackButtonPressed)
                     {
-                        if(myApp == null || !myApp.getIsLogin())
+                        if(!myApp.getIsLogin())
                             break label0;
                         android.content.Context context = getApplicationContext();
                         Object obj;
