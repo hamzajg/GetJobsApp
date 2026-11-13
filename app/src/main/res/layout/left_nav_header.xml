@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="110.0dip"
     android:background="@color/white">
 
-    <cn.gavinliu.android.lib.shapedimageview.ShapedImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/header_image"
         android:layout_width="80.0dip"
         android:layout_height="80.0dip"
@@ -13,8 +12,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="10.0dip"
         android:contentDescription="@string/app_name"
-        android:src="@mipmap/ic_launcher_app"
-        app:shape_mode="circle" />
+        android:src="@mipmap/ic_launcher_app" />
 
     <LinearLayout
         android:layout_width="fill_parent"

@@ -1,11 +1,7 @@
-plugins {
-    id 'com.onesignal.androidsdk.onesignal-gradle-plugin' version '0.8.1'
-}
-
 apply plugin: 'com.android.application'
-apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
 repositories {
-    maven { url 'https://maven.google.com' }
+    google()
 }
 android {
     compileSdkVersion 26
@@ -39,7 +35,7 @@ dependencies {
     // OneSignal SDK
     implementation 'com.onesignal:OneSignal:3.8.3'
     implementation 'com.google.firebase:firebase-ads:12.0.1'
-    implementation 'cn.gavinliu.android.lib:ShapedImageView:0.8.5'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.mobsandgeeks:android-saripaar:1.0.3'
 
 
