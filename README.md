@@ -34,12 +34,12 @@ settings.gradle
 
 ## Building
 
-The project targets SDK 26 and has no Gradle wrapper checked in. Open it in
-Android Studio (or run Gradle with `ANDROID_HOME` pointing at an SDK that has
-API 26 installed):
+The Gradle 4.4 wrapper is checked in, matching AGP 3.1.0. It needs JDK 8 and
+an SDK with API 26 and build-tools 27.0.3 installed (`ANDROID_HOME` or
+`local.properties`):
 
 ```bash
-gradle :app:assembleDebug
+sh gradlew :app:assembleDebug
 ```
 
 ## Configuration
@@ -56,10 +56,23 @@ The Firebase configuration file (`google-services.json`) is not committed.
 ## Tests
 
 ```bash
-gradle :app:testDebugUnitTest
+sh gradlew :app:testDebugUnitTest
 ```
+
+CI installs API 26 / build-tools 27.0.3, sets up JDK 8 and runs the same task.
 
 ## Status
 
 Legacy sample app. It uses the pre-AndroidX support library and an old SDK;
 modernizing it would require an AndroidX migration and a dependency upgrade.
+
+The OneSignal Gradle plugin was pinned to `0.8.1`, which is not on the plugin
+portal (the first published version is `0.10.0`); it is no longer applied,
+because the `manifestPlaceholders` it generated are already set by hand in
+`app/build.gradle`. `cn.gavinliu.android.lib:ShapedImageView:0.8.5` is no
+longer published anywhere, so the header avatar uses
+`de.hdodenhof:circleimageview` instead.
+
+The app is mostly scaffolding: `MainActivity` only inflates a layout with an
+ad view, and the sign-in screen is the only one with real logic. There is no
+job list, detail screen or notification handling wired up yet.
