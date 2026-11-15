@@ -1,8 +1,8 @@
 # Delivery Loop — job-board-core
 
-Status: running
-Iterations: 4
-Updated: 2026-11-15T19:53:17Z
+Status: blocked
+Iterations: 5
+Updated: 2026-11-15T20:08:45Z
 
 | Wave | Status | Branch | PR | Evidence | Updated |
 |------|--------|--------|----|----------|---------|
@@ -24,3 +24,4 @@ Updated: 2026-11-15T19:53:17Z
 - 2026-11-15T19:45:30Z complete wave 2 (#8): clean test green + assembleDebug BUILD SUCCESSFUL locally; CI Android unit tests green; UI verified via build (JVM tests
 - 2026-11-15T19:45:33Z start wave 3 on feat/job-board-core-w3
 - 2026-11-15T19:53:15Z complete wave 3 (#9): clean test green + assembleDebug BUILD SUCCESSFUL; CI green; all 3 waves done
+- 2026-11-15T20:08:45Z blocked: G1: on-device smoke test needed — install debug APK on device/emulator, sign in as job seeker, walk EXAMPLES.feature @w2
