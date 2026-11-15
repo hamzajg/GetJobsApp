@@ -163,6 +163,8 @@
     <string name="job_qualification_add">Enter Qualification</string>
     <string name="job_qualification_lbl">Qualification :-</string>
     <string name="job_salary">Salary</string>
+    <string name="job_search_empty">No jobs match your search</string>
+    <string name="job_search_hint">Search jobs</string>
     <string name="job_salary_add">Enter Salary</string>
     <string name="job_salary_lbl">Salary :-</string>
     <string name="job_seeker">Job Seeker</string>
