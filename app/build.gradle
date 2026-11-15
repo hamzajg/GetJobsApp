@@ -2,41 +2,50 @@ apply plugin: 'com.android.application'
 
 repositories {
     google()
+    mavenCentral()
 }
+
 android {
-    compileSdkVersion 26
+    namespace 'com.thephoenixit.getjobsapp'
+    compileSdkVersion 34
+
     defaultConfig {
-        // TODO: Please update the OneSignal ID below to yours!
         manifestPlaceholders = [onesignal_app_id               : "aecb4474-888c-40c6-8ad8-e911a5dcbf3e",
-                                // Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: 'REMOTE']
         applicationId "com.thephoenixit.getjobsapp"
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion 24
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    // OneSignal SDK
-    implementation 'com.onesignal:OneSignal:3.8.3'
-    implementation 'com.google.firebase:firebase-ads:12.0.1'
-    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.12.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+
+    implementation 'com.onesignal:OneSignal:5.10.2'
+    implementation 'com.google.android.gms:play-services-base:18.11.1'
+    implementation 'com.google.firebase:firebase-ads:23.6.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.mobsandgeeks:android-saripaar:1.0.3'
-
-
 }
