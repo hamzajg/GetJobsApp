@@ -1,5 +1,6 @@
 package com.thephoenixit.getjobsapp.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity
             public void onJobClick(Job job)
             {
                 // Wave 3 (job-board-core): open JobDetailActivity for this job.
+                startActivity(new Intent(MainActivity.this, JobDetailActivity.class)
+                        .putExtra(JobDetailActivity.EXTRA_JOB_ID, job.getId()));
             }
         });
         recyclerView.setAdapter(jobAdapter);
