@@ -147,6 +147,7 @@
     <string name="job_company_lbl">Company Name :-</string>
     <string name="job_date_add">Enter Date</string>
     <string name="job_date_lbl">Date :-</string>
+    <string name="job_detail_title">Job Details</string>
     <string name="job_description">Job Description</string>
     <string name="job_description_add">Enter Description</string>
     <string name="job_description_lbl">Description :-</string>
