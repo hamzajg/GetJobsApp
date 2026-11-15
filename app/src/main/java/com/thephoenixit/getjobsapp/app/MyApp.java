@@ -55,7 +55,17 @@ public class MyApp extends Application {
     public void onCreate()
     {
         super.onCreate();
-        OneSignal.startInit(this).inFocusDisplaying(com.onesignal.OneSignal.OSInFocusDisplayOption.Notification).init();
+        OneSignal.initWithContext(this, "aecb4474-888c-40c6-8ad8-e911a5dcbf3e");
+        OneSignal.getNotifications().requestPermission(true, new kotlin.coroutines.Continuation<Boolean>() {
+            @Override
+            public kotlin.coroutines.CoroutineContext getContext() {
+                return kotlin.coroutines.EmptyCoroutineContext.INSTANCE;
+            }
+
+            @Override
+            public void resumeWith(Object result) {
+            }
+        });
         TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/custom.ttf");
     }
 

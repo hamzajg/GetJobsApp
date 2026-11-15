@@ -24,7 +24,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@id/rbJobSeeker"
+                    android:id="@+id/rbJobSeeker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
@@ -34,7 +34,7 @@
                     android:theme="@style/WhiteCheck" />
 
                 <RadioButton
-                    android:id="@id/rbJobProvider"
+                    android:id="@+id/rbJobProvider"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10.0dip"
@@ -71,7 +71,7 @@
                         android:textColor="@color/white" />
 
                     <EditText
-                        android:id="@id/edt_name"
+                        android:id="@+id/edt_name"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edittext_corner"
@@ -116,7 +116,7 @@
                         android:textColor="@color/white" />
 
                     <EditText
-                        android:id="@id/edt_email"
+                        android:id="@+id/edt_email"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edittext_corner"
@@ -161,7 +161,7 @@
                         android:textColor="@color/white" />
 
                     <EditText
-                        android:id="@id/edt_password"
+                        android:id="@+id/edt_password"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edittext_corner"
@@ -206,7 +206,7 @@
                         android:textColor="@color/white" />
 
                     <EditText
-                        android:id="@id/edt_contact_no"
+                        android:id="@+id/edt_contact_no"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edittext_corner"
@@ -232,7 +232,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@id/button_sign_up"
+                    android:id="@+id/button_sign_up"
                     style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0.0dip"
                     android:layout_height="wrap_content"
@@ -246,7 +246,7 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@id/lyt_bottom"
+        android:id="@+id/lyt_bottom"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -263,7 +263,7 @@
             android:textColor="@color/line" />
 
         <TextView
-            android:id="@id/text_sign_in"
+            android:id="@+id/text_sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5.0dip"
