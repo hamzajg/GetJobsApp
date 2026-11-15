@@ -29,21 +29,36 @@ Requires: Android SDK platform 34 + build-tools 34.0.0, JDK 17. `manifestPlaceho
 ```
 app/src/main/java/com/thephoenixit/getjobsapp/
   app/MyApp.java              Application class
+  jobs/                       pure-Java domain layer (unit-testable on JVM):
+    Job.java                  model — contract field names from Constant
+    JobRepository.java        loads/parses assets/jobs.json once, caches;
+                              parsing isolated for test injection
+    JobFilter.java            case-insensitive keyword match over
+                              title/company/skills/location
   views/
     SplashActivity.java       launch screen
     SignInActivity.java       login
     SignUpActivity.java       registration
     ForgotPasswordActivity.java
-    JobProviderMainActivity.java  main job list/details
+    MainActivity.java         seeker home — RecyclerView job list +
+                              live search EditText + empty state inside
+                              the Container FrameLayout
+    JobAdapter.java           RecyclerView adapter for job rows
+    JobDetailActivity.java    full job-field detail screen
+    JobProviderMainActivity.java  employer-side stub (untouched)
   utils/                      helpers
+app/src/main/assets/jobs.json bundled ~10-listing sample dataset
 app/src/main/AndroidManifest.xml
 app/build.gradle              SDK 34, OneSignal 5.10.2, firebase-ads 23.6.0,
-                              appcompat + constraint-layout + material
+                              appcompat + constraint-layout + material +
+                              recyclerview; testImpl android-json (JVM tests)
 ```
 
 Classic Activity-based Android app — no MVVM, no DI framework. Job data
-source and OneSignal/Firebase wiring live in activities/utils; check
-`MyApp.java` for SDK init.
+comes from the bundled `assets/jobs.json` via `JobRepository`/`JobFilter`
+(feature `job-board-core`, specs/job-board-core/); the legacy remote API
+(`viaviweb.in`) is out of scope. OneSignal/Firebase wiring lives in
+activities/utils; check `MyApp.java` for SDK init.
 
 ## Conventions
 

@@ -9,21 +9,33 @@ notifications for new openings.
 lets users open a posting to see its details, and uses OneSignal to deliver
 notifications about new jobs. Ads are served through Firebase.
 
+## Job board
+
+The seeker home screen (`MainActivity`, reached after sign-in) lists jobs
+from a bundled sample dataset, `app/src/main/assets/jobs.json` (~10
+listings), with live keyword search and an empty state. Tapping a row opens
+`JobDetailActivity` with the full listing. The domain layer is pure Java in
+`jobs/` (`Job`, `JobRepository`, `JobFilter`) and unit-tested on the JVM —
+see `specs/job-board-core/` for the spec and validation notes. Sample data
+only; the legacy remote API is not wired up.
+
 ## Tech stack
 
-- **Language:** Java
-- **Min SDK:** 15 · **Target/compile SDK:** 26
-- **UI:** Android Support Library (`appcompat`, `constraint-layout`)
-- **Push:** OneSignal 3.8.3
-- **Ads:** Firebase Ads 12.0.1
+- **Language:** Java (AndroidX)
+- **Min SDK:** 24 · **Target/compile SDK:** 34
+- **UI:** AndroidX (`appcompat`, `constraint-layout`, `material`, `recyclerview`)
+- **Push:** OneSignal 5.10.2
+- **Ads:** Firebase Ads 23.6.0
 - **Forms:** Android Saripaar
 
 ## Project layout
 
 ```
 app/
+  src/main/assets/jobs.json   # bundled sample job dataset
   src/main/java/com/thephoenixit/getjobsapp/
     app/      # application class
+    jobs/     # pure-Java domain: Job, JobRepository, JobFilter
     utils/    # helpers
     views/    # activities/fragments and adapters
   src/main/res/
@@ -34,8 +46,8 @@ settings.gradle
 
 ## Building
 
-The Gradle 4.4 wrapper is checked in, matching AGP 3.1.0. It needs JDK 8 and
-an SDK with API 26 and build-tools 27.0.3 installed (`ANDROID_HOME` or
+The Gradle wrapper is checked in (Gradle 8.9, AGP 8.7.3). It needs JDK 17
+and an SDK with API 34 and build-tools 34.0.0 installed (`ANDROID_HOME` or
 `local.properties`):
 
 ```bash
@@ -56,15 +68,17 @@ The Firebase configuration file (`google-services.json`) is not committed.
 ## Tests
 
 ```bash
-sh gradlew :app:testDebugUnitTest
+sh gradlew test --no-daemon
 ```
 
-CI installs API 26 / build-tools 27.0.3, sets up JDK 8 and runs the same task.
+CI installs API 34 / build-tools 34.0.0, sets up JDK 17 and runs the same task.
 
 ## Status
 
-Legacy sample app. It uses the pre-AndroidX support library and an old SDK;
-modernizing it would require an AndroidX migration and a dependency upgrade.
+Legacy sample app on AndroidX (AGP 8.7.3, SDK 34, JDK 17). The job-seeker
+list/detail flow ships sample data from `assets/jobs.json`; auth
+(register/login/forgot-password) is still stubbed and there is no real
+backend integration or notification handling wired up yet.
 
 The OneSignal Gradle plugin was pinned to `0.8.1`, which is not on the plugin
 portal (the first published version is `0.10.0`); it is no longer applied,
@@ -73,6 +87,7 @@ because the `manifestPlaceholders` it generated are already set by hand in
 longer published anywhere, so the header avatar uses
 `de.hdodenhof:circleimageview` instead.
 
-The app is mostly scaffolding: `MainActivity` only inflates a layout with an
-ad view, and the sign-in screen is the only one with real logic. There is no
-job list, detail screen or notification handling wired up yet.
+The app is mostly scaffolding: `MainActivity` now hosts the job list (ad
+banner + search + RecyclerView) and `JobDetailActivity` shows a listing's
+fields; the sign-in screen is the only auth screen with real logic, and
+`JobProviderMainActivity` remains an empty stub.
