@@ -1,8 +1,8 @@
 # Delivery Loop — job-board-core
 
 Status: blocked
-Iterations: 5
-Updated: 2026-11-15T20:08:45Z
+Iterations: 6
+Updated: 2026-11-16T11:27:37Z
 
 | Wave | Status | Branch | PR | Evidence | Updated |
 |------|--------|--------|----|----------|---------|
